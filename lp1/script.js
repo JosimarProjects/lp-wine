@@ -17,6 +17,10 @@ setText('partnerName', partnerName);
 setText('heroPartner', partnerName);
 setText('aboutPartnerTitle', partnerName);
 
+// First name for sections
+const firstName = partnerName.split(' ')[0];
+setText('winesSectionName', firstName);
+
 // Update page title
 document.title = `${partnerName} | Wine x Flip - Vinhos Selecionados`;
 
@@ -112,16 +116,13 @@ document.querySelectorAll('.section-header').forEach(el => {
 
 // ===== HEADER SCROLL EFFECT =====
 const header = document.querySelector('.header');
-let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
-  const current = window.scrollY;
-  if (current > 100) {
-    header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+  if (window.scrollY > 150) {
+    header.classList.add('scrolled');
   } else {
-    header.style.boxShadow = 'none';
+    header.classList.remove('scrolled');
   }
-  lastScroll = current;
 });
 
 // ===== SMOOTH SCROLL for nav links =====
