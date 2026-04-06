@@ -1,0 +1,11 @@
+*.png
+!lp1/assets/img/wine*.png
+!lp1/assets/img/hero*.png
+!lp1/assets/img/kit*.png
+!lp1/assets/img/creator-*.png
+*.jpeg
+*_thumb.jpeg
+ref-*.png
+ref-*.jpg
+preview-*.png
+preview-*.jpg
