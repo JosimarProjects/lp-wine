@@ -163,4 +163,27 @@ if (couponTicket && couponEl) {
   });
 }
 
+// ===== CREATOR SLIDESHOW =====
+const slides = document.querySelectorAll('.creator-slide');
+const dots = document.querySelectorAll('.slide-dot');
+let currentSlide = 0;
+
+function goToSlide(index) {
+  slides.forEach(s => s.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+  slides[index].classList.add('active');
+  dots[index].classList.add('active');
+  currentSlide = index;
+}
+
+if (slides.length > 1) {
+  setInterval(() => {
+    goToSlide((currentSlide + 1) % slides.length);
+  }, 3500);
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => goToSlide(i));
+  });
+}
+
 console.log(`[Wine x Flip LP] Partner: ${partnerName} | UTM: ${utmSource}/${utmCampaign}`);
