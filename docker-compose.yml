@@ -1,0 +1,6 @@
+services:
+  lp-wine:
+    build: ./lp1
+    ports:
+      - "80:80"
+    restart: always
