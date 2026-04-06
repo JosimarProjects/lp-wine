@@ -57,23 +57,57 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Add fade-in to sections
-document.querySelectorAll('.wine-card, .plan-card, .benefit, .creator-grid, .club-creator-endorsement, .cta-content').forEach(el => {
+// Add animations to sections
+// Wine cards - scale in with stagger
+document.querySelectorAll('.wine-card').forEach((card, i) => {
+  card.classList.add('scale-in');
+  card.style.transitionDelay = `${i * 0.1}s`;
+  observer.observe(card);
+});
+
+// Benefits - fade in with stagger
+document.querySelectorAll('.benefit').forEach((b, i) => {
+  b.classList.add('fade-in');
+  b.style.transitionDelay = `${i * 0.1}s`;
+  observer.observe(b);
+});
+
+// Creator photo - slide from left
+document.querySelectorAll('.creator-photo-wrap').forEach(el => {
+  el.classList.add('slide-left');
+  observer.observe(el);
+});
+
+// Creator info elements - slide from right
+document.querySelectorAll('.creator-info .section-tag, .creator-info h2, .creator-info .creator-role, .creator-info .creator-bio').forEach((el, i) => {
+  el.classList.add('slide-right');
+  el.style.transitionDelay = `${0.1 + i * 0.12}s`;
+  observer.observe(el);
+});
+
+// Plan cards - fade in with stagger
+document.querySelectorAll('.plan-card').forEach((card, i) => {
+  card.classList.add('fade-in');
+  card.style.transitionDelay = `${i * 0.15}s`;
+  observer.observe(card);
+});
+
+// Club endorsement - scale in
+document.querySelectorAll('.club-creator-endorsement').forEach(el => {
+  el.classList.add('scale-in');
+  observer.observe(el);
+});
+
+// CTA - fade in
+document.querySelectorAll('.cta-content').forEach(el => {
   el.classList.add('fade-in');
   observer.observe(el);
 });
 
-// Stagger animation for wine cards
-document.querySelectorAll('.wine-card').forEach((card, i) => {
-  card.style.transitionDelay = `${i * 0.08}s`;
-});
-
-document.querySelectorAll('.plan-card').forEach((card, i) => {
-  card.style.transitionDelay = `${i * 0.12}s`;
-});
-
-document.querySelectorAll('.benefit').forEach((b, i) => {
-  b.style.transitionDelay = `${i * 0.1}s`;
+// Section headers - fade in
+document.querySelectorAll('.section-header').forEach(el => {
+  el.classList.add('fade-in');
+  observer.observe(el);
 });
 
 // ===== HEADER SCROLL EFFECT =====
